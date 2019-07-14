@@ -1,11 +1,12 @@
 html {
-  --primaryTextColor : #696969;
+  --primaryTextColor: #696969;
   --amber: #FF9800;
   --loadingBg: #009688;
-  --toggleSliderBg: #ccc;
+  --toggleSliderBg: #cccccc;
   --toggleButton: #2196F3;
   --success: #009688;
-  --colorWhite: #F4F5EF;
+  --colorWhite: #FFFFFF;
+  --colorWhite70: #eaeaea; /* rgba(256, 256, 256, 0.7);*/
   --headerBg: #04A2FF;
 }
 

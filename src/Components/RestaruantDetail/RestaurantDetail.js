@@ -6,17 +6,16 @@ import './RestaurantDetail.css';
 const RestaurantDetail = ({ place, classes }) => (
   <div
     className={classNames('restaurant', classes.wrapper)}
+    onClick={() => {
+      if (!place.url) return;
+      const a = document.createElement('a');
+      a.href = place.url;
+      a.target = '_blank';
+      a.click();
+    }}
   >
     <div
-      className={classNames('restaurantDetails')}
-      onClick={() => {
-        if (!place.url) return;
-        const a = document.createElement('a');
-        a.href = place.url;
-        a.target = '_blank';
-        a.click();
-      }}
-    >
+      className={classNames('restaurantDetails')}>
       <div className='restaurantName'>{place.name}</div>
       <div>
         <span> {place.rating}{' '} </span>

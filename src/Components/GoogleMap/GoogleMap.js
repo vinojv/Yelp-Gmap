@@ -24,67 +24,64 @@ const Marker = ({ place }) => (
   </Fragment>
 );
 
-function GoogleMap(props) {
-  const {
-    mapApiLoaded, mapInstance, mapApi, addPlace, apiHasLoaded, coordinates,
-    places,
-  } = props;
-
-  return (
-    <Fragment>
-      {mapApiLoaded && (
-        <div className='mainContainerSearchContainer'>
-          <AutoComplete
-            classes={{
-              wrapper: 'mainContainerSearch',
-            }}
-            map={mapInstance}
-            mapApi={mapApi}
-            addplace={addPlace}
-          />
-        </div>
+const GoogleMap = ({
+  mapApiLoaded, mapInstance, mapApi, addPlace, apiHasLoaded, coordinates,
+  places,
+}) => (
+  <Fragment>
+    {mapApiLoaded && (
+      <div className='mainContainerSearchContainer'>
+        <AutoComplete
+          classes={{
+            wrapper: 'mainContainerSearch',
+          }}
+          map={mapInstance}
+          mapApi={mapApi}
+          addplace={addPlace}
+        />
+      </div>
+    )}
+    <GoogleMapReact
+      bootstrapURLKeys={googleMapKeys}
+      yesIWantToUseGoogleMapApiInternals
+      onGoogleApiLoaded={({ map, maps }) => apiHasLoaded(map, maps)}
+      center={{
+        lat: coordinates && coordinates.latitude || 0,
+        lng: coordinates && coordinates.longitude || 0,
+      }}
+      defaultZoom={13}
+    >
+      {places.map(place => (
+        <Marker
+          key={place.id}
+          lat={place.coordinate.latitude}
+          lng={place.coordinate.longitude}
+          place={place}
+        />),
       )}
-      <GoogleMapReact
-        bootstrapURLKeys={googleMapKeys}
-        yesIWantToUseGoogleMapApiInternals
-        onGoogleApiLoaded={({ map, maps }) => apiHasLoaded(map, maps)}
-        center={{
-          lat: coordinates && coordinates.latitude || 0,
-          lng: coordinates && coordinates.longitude || 0,
-        }}
-        defaultZoom={13}
-      >
-        {places.map(place =>
-          (<Marker
-            key={place.id}
-            lat={place.coordinate.latitude}
-            lng={place.coordinate.longitude}
-            place={place}
-          />))}
-      </GoogleMapReact>
-    </Fragment>
-  );
-}
+    </GoogleMapReact>
+  </Fragment>
+);
 
 GoogleMap.defaultProps = {
   mapApiLoaded: false,
   mapInstance: null,
   mapApi: null,
   addPlace: f => f,
-  apiHasLoaded: false,
+  apiHasLoaded: f => f,
   coordinates: {},
   places: [],
 };
 const coordinates = PropTypes.shape({
-  longitude: PropTypes.string,
-  latitude: PropTypes.string,
+  longitude: PropTypes.number,
+  latitude: PropTypes.number,
 });
 GoogleMap.propTypes = {
   mapApiLoaded: PropTypes.bool,
   mapInstance: PropTypes.object,
   mapApi: PropTypes.object,
-  addPlace: f => f,
-  apiHasLoaded: PropTypes.bool,
+  addPlace: PropTypes.func,
+  apiHasLoaded: PropTypes.func,
   coordinates,
   places: PropTypes.arrayOf(PropTypes.shape({
     coordinates,

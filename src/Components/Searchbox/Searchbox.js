@@ -3,9 +3,19 @@ import * as PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import './Searchbox.css';
 
+/* uses Gmap tools from showing suggestions*/
 class InputSuggestion extends Component {
   static defaultProps = {
     classes: {},
+    mapApiLoaded: false,
+    mapInstance: null,
+    mapApi: null,
+  };
+  static propTypes = {
+    mapApiLoaded: PropTypes.bool,
+    mapInstance: PropTypes.object,
+    mapApi: PropTypes.object,
+    classes: PropTypes.object,
   };
 
   constructor(props) {

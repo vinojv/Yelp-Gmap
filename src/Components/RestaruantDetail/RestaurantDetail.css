@@ -1,9 +1,9 @@
 .restaurant {
   cursor: pointer;
-  border: 1px solid white;
+  border: 1px solid var(--colorWhite);
   margin: 1px 5px 0;
   padding: 3px;
-  background: white;
+  background: var(--colorWhite);
   height: 68px;
   text-align: left;
   display: flex;
@@ -32,13 +32,13 @@
 }
 
 .restaurantStatus.open {
-  color: green;
+  color: var(--success);
 }
 
 .rating {
-  color: #FFA500;
+  color: var(--amber);
 }
 
 .ratingRemaining {
-  color: #D3D3D3;
+  color: var(--primaryTextColor);
 }

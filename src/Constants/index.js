@@ -18,6 +18,6 @@ export const defaultHeaders = {
 };
 
 export const googleMapKeys = {
-  key: 'AIzaSyAz8Tvq2BYQrolzJe9DtMtOWPCaqpXYQhA',
-    libraries: ['places', 'geometry'],
-}
+  key: 'AIzaSyDAQOhuvUriLPgDzVblnSSH7BUj-s2EMSw',
+  libraries: ['places', 'geometry'],
+};

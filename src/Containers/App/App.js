@@ -27,9 +27,14 @@ class App extends Component {
     mapApiLoaded: false,
     mapInstance: null,
     mapApi: null,
-    places: [],
-    coordinates: {},
+    coordinates: {}, // used for current location
   };
+
+  componentDidMount() {
+    // using settimeout, because on loading of document location is not being received
+    setTimeout(this.onUseMyLocation, 2000);
+  }
+
 
   apiHasLoaded = (map, maps) => {
     this.setState({
@@ -53,7 +58,6 @@ class App extends Component {
   onUseMyLocation = () => {
     const { dispatch } = this.props;
     navigator.geolocation.getCurrentPosition((val) => {
-      console.log('get geo location', val.coords);
       this.setState({
         useCurentLocation: true,
         coordinates: val.coords,
@@ -110,4 +114,4 @@ class App extends Component {
   }
 }
 
-export default connect()(App);
+export default connect(state => state)(App);

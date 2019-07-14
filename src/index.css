@@ -1,6 +1,12 @@
 html {
   --primaryTextColor : #696969;
-  --amber: #83430d;
+  --amber: #FF9800;
+  --loadingBg: #009688;
+  --toggleSliderBg: #ccc;
+  --toggleButton: #2196F3;
+  --success: #009688;
+  --colorWhite: #F4F5EF;
+  --headerBg: #04A2FF;
 }
 
 body {

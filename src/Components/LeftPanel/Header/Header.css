@@ -1,0 +1,50 @@
+.leftpaneSearchWrapper {
+  background: var(--headerBg);
+  padding: 10px;
+  display: none;
+}
+
+.useLocationButton {
+  border: none;
+  padding: 4px;
+  box-sizing: content-box;
+  color: var(--colorWhite);
+  background: transparent;
+  border-radius: 3px;
+  outline: none;
+  opacity: 0.8;
+}
+
+.useLocationButton:hover {
+  opacity: 1;
+}
+
+.useLocationButton.active {
+  background: var(--success);
+}
+
+.toggleContainer {
+  display: flex;
+  align-items: center;
+  color: var(--colorWhite);
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+
+@media only screen and (max-width: 500px) {
+  .leftPaneContainer {
+    width: 100%;
+  }
+
+  .leftpaneSearchWrapper {
+    display: block;
+  }
+
+  .showMap {
+    display: none;
+  }
+}

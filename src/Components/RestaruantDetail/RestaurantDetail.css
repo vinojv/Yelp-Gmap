@@ -1,0 +1,44 @@
+.restaurant {
+  cursor: pointer;
+  border: 1px solid white;
+  margin: 1px 5px 0;
+  padding: 3px;
+  background: white;
+  height: 68px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+}
+
+.restaurantImage {
+  width: 65px;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.restaurantName {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.restaurantDesc {
+  font-size: 10px;
+}
+
+.restaurantStatus {
+  color: var(--amber);
+}
+
+.restaurantStatus.open {
+  color: green;
+}
+
+.rating {
+  color: #FFA500;
+}
+
+.ratingRemaining {
+  color: #D3D3D3;
+}

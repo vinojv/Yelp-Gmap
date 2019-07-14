@@ -1,0 +1,68 @@
+.map {
+  height: 100%;
+}
+
+.autoCompleteWrapper {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.mainContainerSearchContainer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  z-index: 9;
+  width: 100%;
+}
+
+.mainContainerSearch {
+  width: 300px;
+}
+
+
+.marker {
+  border: 1px solid white;
+  border-radius: 50%;
+  height: 10px;
+  width: 10px;
+  cursor: pointer;
+  z-index: 10;
+  background: blue;
+}
+
+.marker:hover {
+  background: red;
+}
+
+.infoWindow {
+  display: none;
+  position: relative;
+  text-align: left;
+  bottom: 70px;
+  left: -45px;
+  width: 300px;
+  background-color: white;
+  box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  font-size: 14px;
+  z-index: 100;
+}
+
+.infoWindow:hover {
+  display: flex;
+}
+
+.marker:hover + .infoWindow {
+  overflow: auto;
+  display: flex;
+}
+
+@media only screen and (max-width: 500px) {
+  .mainContainerSearchContainer {
+    display: none;
+  }
+}
